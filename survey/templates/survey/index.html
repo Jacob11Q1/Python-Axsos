@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f0f0f0; 
+            padding: 20px; 
+        }
+
+        .form-container { 
+            background: white; 
+            padding: 25px 30px; 
+            border-radius: 8px; 
+            max-width: 500px; 
+            margin: auto; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        label { 
+            display: block; 
+            margin-top: 15px; 
+            font-weight: bold;
+        }
+
+        input[type=text], textarea, select { 
+            width: 100%; 
+            padding: 8px; 
+            margin-top: 5px; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] { 
+            margin-top: 20px; 
+            padding: 10px 20px; 
+            background: #007BFF; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px;
+        }
+
+        input[type=submit]:hover { 
+            background: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Dojo Survey</h2>
+        <form action="/result/" method="POST">
+            {% csrf_token %}
+
+            <label for="name">Your Name:</label>
+            <input type="text" name="name" id="name">
+
+            <label for="dojo_location">Dojo Location:</label>
+            <select name="dojo_location" id="dojo_location">
+                <option value="San Jose">San Jose</option>
+                <option value="Chicago">Chicago</option>
+                <option value="London">London</option>
+            </select>
+
+            <label for="favorite_language">Favorite Language:</label>
+            <select name="favorite_language" id="favorite_language">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+                <option value="C++">C++</option>
+                <option value="Javascript">Javascript</option>
+            </select>
+
+            <label for="comments">Comment:</label>
+            <textarea name="comments" id="comments" rows="4" placeholder="Enter a comment"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
